@@ -8,25 +8,16 @@ public class Main {
 		for(int i=0;i<n;i++){
 		    arr[i]=stdin.nextInt();
 		}
-		int max=0;
-	    int a=0;
-	    int b=1;
-	    int c=2;
-	    while(a<n-3){
-	        if(b==n-2){
-	            a++;
-	            b=a+1;
-	            c=b+1;
-	        }
-	        else if(c==n-1){
-	            b++;
-	            c=b+1;
-	        }
-	        if(arr[a]+arr[b]+arr[c]<=m&&max<arr[a]+arr[b]+arr[c]){
-	            max=arr[a]+arr[b]+arr[c];
-	        }
-	        c++;
-	    }
-	    System.out.println(max);
+		int hap=0;
+		for(int i=0;i<n;i++){
+		    for(int j=i+1;j<n;j++){
+		        for(int k=j+1;k<n;k++){
+		            if(arr[i]+arr[j]+arr[k]>hap&&arr[i]+arr[j]+arr[k]<=m)
+		                hap=arr[i]+arr[j]+arr[k];
+		        }
+		    }
+		}
+	    
+	    System.out.println(hap);
 	}
 }
